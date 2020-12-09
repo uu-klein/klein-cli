@@ -1,0 +1,35 @@
+{
+  "name": "klein-cli",
+  "version": "1.0.1",
+  "description": "klein工具",
+  "main": "index.js",
+  "bin": {
+    "klein-cli": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uu-klein/klein-cli.git"
+  },
+  "keywords": [
+    "klein-cli"
+  ],
+  "author": "klein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uu-klein/klein-cli/issues"
+  },
+  "homepage": "https://github.com/uu-klein/klein-cli#readme",
+  "dependencies": {
+    "@types/inquirer": "^7.3.1",
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
+    "figlet": "^1.5.0",
+    "inquirer": "^7.3.3",
+    "log-symbols": "^4.0.0",
+    "ora": "^5.1.0",
+    "shelljs": "^0.8.4"
+  }
+}
