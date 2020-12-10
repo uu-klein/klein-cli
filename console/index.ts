@@ -2,7 +2,7 @@ import chalk from "chalk";
 
 import figlet from "figlet";
 
-import {paramsProp, statusProps} from "../types";
+import {props, statusProps} from "../types";
 
 const logo = () => console.log(chalk.green(figlet.textSync("Klein-Cli", {
     font: "Ghost",
@@ -10,7 +10,7 @@ const logo = () => console.log(chalk.green(figlet.textSync("Klein-Cli", {
     verticalLayout: "default"
 })))
 
-export function _console<T extends paramsProp<T>>(status: statusProps, info?: T): void {
+export function _console<T extends props<T>>(status: statusProps, info?: T): void {
     switch (status) {
         case "logo":
             break;

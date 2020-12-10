@@ -9,7 +9,7 @@ export class InitCommand extends AbstractCommand {
             .alias('i')
             .description('init')
             .action(async () => {
-                await this.action.handle()
+                await this.action.handle<string[]>()
             })
     }
 }

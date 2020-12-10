@@ -1,8 +1,5 @@
-// 接收参数
-export interface Inputs {
-    name: string
-}
+import {props} from "../types";
 
 export abstract class AbstractAction {
-    public abstract handle(input?: Inputs[]): Promise<void>
+    public abstract handle<T extends props<T>>(input?: string[]): Promise<void>
 }
