@@ -1,24 +1,48 @@
 import inquirer from 'inquirer';
 
-interface answersProps {
+export interface answersProps {
     author: string,
     isRoot: boolean,
     language: string,
     isTs: boolean,
+    projectName: string,
 }
+
+// interface CreateArrayFunc<T> {
+//     (length: number, value: T): Array<T>;
+// }
+//
+// let createArray: CreateArrayFunc<any>;
+//
+// createArray = function<T>(length: number, value: T): Array<T> {
+//     let result: T[] = [];
+//     for (let i = 0; i < length; i++) {
+//         result[i] = value;
+//     }
+//     return result;
+// }
+//
+// createArray(3, 'x'); // ['x', 'x', 'x']
+
 
 export const _inquirer: () => Promise<answersProps> = async () => await inquirer.prompt([
     {
         type: 'input',
         name: 'author',
         message: () => '请输入作者名称',
-        default: 'klein',
+        default: 'Klein',
     },
     {
         type: 'confirm',
         name: 'isRoot',
         default: true,
         message: (answers: answersProps) => `大神${answers.author}当前目录是根目录`,
+    },
+    {
+        type: 'input',
+        name: 'projectName',
+        default: 'Template',
+        message: (answers: answersProps) => `大神${answers.author}请输入项目名称`,
     },
     {
         name: 'language',
@@ -47,8 +71,3 @@ export const _inquirer: () => Promise<answersProps> = async () => await inquirer
         message: (answers: answersProps) => `大神${answers.author}是否使用TypeScript`,
     },
 ]);
-
-
-// module.exports = {
-//     _inquirer
-// }

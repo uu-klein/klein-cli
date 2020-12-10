@@ -7,7 +7,7 @@ import {Inputs} from "../abstract/action";
 export class CreateCommand extends AbstractCommand {
     public load(program: CommanderStatic) {
         program
-            .command('create <name>')
+            .command('create')
             .alias('c')
             .description('create')
             .action(async (name: Inputs[]) => {
