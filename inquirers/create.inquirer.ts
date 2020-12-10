@@ -1,6 +1,13 @@
-const inquirer = require('inquirer');
+import inquirer from 'inquirer';
 
-const _inquirer = async () => await inquirer.prompt([
+interface answersProps {
+    author: string,
+    isRoot: boolean,
+    language: string,
+    isTs: boolean,
+}
+
+export const _inquirer: () => Promise<answersProps> = async () => await inquirer.prompt([
     {
         type: 'input',
         name: 'author',
@@ -11,12 +18,12 @@ const _inquirer = async () => await inquirer.prompt([
         type: 'confirm',
         name: 'isRoot',
         default: true,
-        message: (answers) => `大神${answers.author}当前目录是根目录`,
+        message: (answers: answersProps) => `大神${answers.author}当前目录是根目录`,
     },
     {
         name: 'language',
         type: 'list',
-        message: (answers) => `大神${answers.author}请选择使用的语言`,
+        message: (answers: answersProps) => `大神${answers.author}请选择使用的语言`,
         default: 'React',
         choices: [
             {
@@ -37,10 +44,11 @@ const _inquirer = async () => await inquirer.prompt([
         type: 'confirm',
         name: 'isTs',
         default: true,
-        message: (answers) => `大神${answers.author}是否使用TypeScript`,
+        message: (answers: answersProps) => `大神${answers.author}是否使用TypeScript`,
     },
 ]);
 
-module.exports = {
-    _inquirer
-}
+
+// module.exports = {
+//     _inquirer
+// }

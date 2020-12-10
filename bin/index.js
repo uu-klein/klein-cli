@@ -1,28 +1,18 @@
 #!/usr/bin/env node
-
-const fs = require('fs');
-const program = require('commander');
-const {_status} = require("../lib/prompt");
-const {_shell} = require("../lib/shell");
-const {_inquirer} = require("../lib/inquirer");
-
-
+"use strict";
+console.log('hello');
+var program = require('commander');
 program
-    .version('1.0.0', '-v, --version')
-    .description(`klein's`)
-    .command('create <name>')
-    .action((name) => {
-        if (!fs.existsSync(name)) {
-            (async () => {
-                _inquirer().then((result) => {
-                    console.log('answers', result);
-                    _shell()
-                })
-            })();
-        } else {
-            _status('exist', '项目已经存在');
-        }
-    })
-
-
-program.parse(process.argv)
+    .version('0.1.0')
+    .option('-C, --chdir <path>', 'change the working directory')
+    .option('-c, --config <path>', 'set config path. defaults to ./deploy.conf')
+    .option('-T, --no-tests', 'ignore test hook');
+program
+    .command('setup [env]')
+    .description('run setup commands for all envs')
+    .action(function (env, options) {
+    var mode = options.setup_mode || "normal";
+    env = env || 'all';
+    console.log('setup for %s env(s) with %s mode', env, mode);
+});
+program.parse(process.argv);
